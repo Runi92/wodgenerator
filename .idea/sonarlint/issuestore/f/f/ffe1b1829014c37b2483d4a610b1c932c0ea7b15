@@ -1,0 +1,23 @@
+
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(øÊ«‰ýÿÿÿÿ8ð¢çê§-
+Fsquid:S1148#"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ð¢çê§-
+nsquid:CommentedOutCodeLine	"<This block of commented-out lines of code should be removed.(ýÿÃøÿÿÿÿ8“š­›¨-
+gsquid:S2147""DCombine this catch with the one at line 28, which has the same body.(’‰¨üùÿÿÿÿ8ð¢çê§-
+Fsquid:S1148%"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ÆïŽë§-
+U
+squid:S106"9Replace this use of System.out or System.err by a logger.(üÐÛ8ð¢çê§-
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(ªÓ¼áþÿÿÿÿ8ð¢çê§-
+gsquid:S2147"DCombine this catch with the one at line 28, which has the same body.(Ìÿô€ÿÿÿÿÿ8ð¢çê§-
+Fsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ð¢çê§-
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(­ëè€úÿÿÿÿ8ð¢çê§-
+[
+squid:S106"9Replace this use of System.out or System.err by a logger.(–ßí·ýÿÿÿÿ8ð¢çê§-
+bsquid:S2147 "DCombine this catch with the one at line 28, which has the same body.(Äû²8ð¢çê§-
+gsquid:S2147$"DCombine this catch with the one at line 28, which has the same body.(Àô Ïüÿÿÿÿ8ÆïŽë§-
+Fsquid:S1148!"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ÆïŽë§-
+Fsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8ð¢çê§-
+U
+squid:S106"9Replace this use of System.out or System.err by a logger.(üÐÛ8ð¢çê§-

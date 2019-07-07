@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+   <f:view>
+      <h:head>
+         <h:outputStylesheet name="css/style.css" />
+         <title>
+            Crossfit Train Generator
+         </title>
+      </h:head>
+
+      <h:body>
+         <h1>
+            Crossfit Train Generator
+         </h1>
+         <br/>
+         <h:form>
+            <p:panel header = "Параметры генерации тренировки">
+               <div class="configPanelDivClass">
+                  <div>
+                  <div class="configPanelContentClass">
+                     <p:outputLabel for = "startPeriodDateId" value = "Дата начала периода тренировок"/>
+                  </div>
+                  <div class="configPanelContentClass">
+                     <p:calendar id = "startPeriodDateId" width="200px" valueChangeListener = "метод смены даты в managedBean"/>
+                  </div>
+                  </div>
+                  <div>
+                  <div class="configPanelContentClass">
+                     <p:outputLabel for = "trainingDateId" value = "Дата тренировки"/>
+                  </div>
+                  <div class="configPanelContentClass">
+                     <p:calendar id = "trainingDateId" valueChangeListener = "метод смены даты в managedBean"/>
+                  </div>
+                  </div>
+               </div>
+            </p:panel>
+         </h:form>
+      </h:body>
+
+   </f:view>
+</html>

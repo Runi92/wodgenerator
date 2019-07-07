@@ -1,0 +1,15 @@
+
+Usquid:S1135C"2Complete the task associated to this TODO comment.(ĞÊ”Îûÿÿÿÿ8ÍŞÃŸ¨-
+Psquid:S1135"2Complete the task associated to this TODO comment.( ÎÓ8ÇõÁŸ-
+gsquid:S2147B"DCombine this catch with the one at line 63, which has the same body.(’‰¨üùÿÿÿÿ8ÍŞÃŸ¨-
+dsquid:UselessImportCheck"9Remove this unused import 'enums.BaseTrainingSchemaEnum'.(ûâò±8ÀÆ‘ ¨-
+Osquid:S1135"2Complete the task associated to this TODO comment.(ˆå«8ÍŞÃŸ¨-
+Fsquid:S1148D"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÍŞÃŸ¨-
+gsquid:S2147<"DCombine this catch with the one at line 57, which has the same body.(Ìÿô€ÿÿÿÿÿ8ÍŞÃŸ¨-
+gsquid:S2147E"DCombine this catch with the one at line 63, which has the same body.(Àô Ïüÿÿÿÿ8ÍŞÃŸ¨-
+Usquid:S1135;"2Complete the task associated to this TODO comment.(ĞÊ”Îûÿÿÿÿ8ÍŞÃŸ¨-
+Fsquid:S1148A"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÍŞÃŸ¨-
+Usquid:S1135@"2Complete the task associated to this TODO comment.(ĞÊ”Îûÿÿÿÿ8ÍŞÃŸ¨-
+qsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(Ï„«Æ8ÍŞÃŸ¨-
+Fsquid:S1148F"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ÍŞÃŸ¨-
+Usquid:S1135>"2Complete the task associated to this TODO comment.(ĞÊ”Îûÿÿÿÿ8ÍŞÃŸ¨-
