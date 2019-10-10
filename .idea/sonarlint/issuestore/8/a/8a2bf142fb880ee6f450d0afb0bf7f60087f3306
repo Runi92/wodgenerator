@@ -1,9 +1,9 @@
 
-squid:S1488"^Immediately return this expression instead of assigning it to the temporary variable "metcon".(î¸ıôûÿÿÿÿ8É…ÅØ£-
-fsquid:S1192y"HDefine a constant instead of duplicating this literal "60 ĞºĞ³" 3 times.(Çõõº8»çÀˆ¤-
 Vsquid:S1135ı"2Complete the task associated to this TODO comment.(©ƒİÊüÿÿÿÿ8»çÀˆ¤-
+fsquid:S1192y"HDefine a constant instead of duplicating this literal "60 ĞºĞ³" 3 times.(Çõõº8»çÀˆ¤-
+squid:S1488"^Immediately return this expression instead of assigning it to the temporary variable "metcon".(î¸ıôûÿÿÿÿ8É…ÅØ£-
+]squid:S1118":Add a private constructor to hide the implicit public one.(ªïïÃıÿÿÿÿ8çí¼Ö£-
 osquid:S1192i"QDefine a constant instead of duplicating this literal "5 Ñ€Ğ°ÑƒĞ½Ğ´Ğ¾Ğ²" 3 times.(·÷î8»çÀˆ¤-
 nsquid:CommentedOutCodeLine."<This block of commented-out lines of code should be removed.(®©Ôïùÿÿÿÿ8 ×Áˆ¤-
-Usquid:S1135"2Complete the task associated to this TODO comment.(Ïãİûÿÿÿÿ8×‡æ…¦-
 qsquid:S1192["NDefine a constant instead of duplicating this literal "20 Ğ¼Ğ¸Ğ½ÑƒÑ‚" 3 times.(Ì›ñöşÿÿÿÿ8»çÀˆ¤-
-]squid:S1118":Add a private constructor to hide the implicit public one.(ªïïÃıÿÿÿÿ8çí¼Ö£-
+Usquid:S1135"2Complete the task associated to this TODO comment.(Ïãİûÿÿÿÿ8×‡æ…¦-

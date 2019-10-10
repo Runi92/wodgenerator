@@ -1,33 +1,28 @@
 
-[
-squid:S106$"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8Â¾È‹¤-
-[
-squid:S106"9Replace this use of System.out or System.err by a logger.(–ßí·ıÿÿÿÿ8Â¾È‹¤-
-Fsquid:S1148'"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Â¾È‹¤-
-Fsquid:S1148+"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Â¾È‹¤-
 bsquid:S2147*"DCombine this catch with the one at line 38, which has the same body.(Äû²8Â¾È‹¤-
 [
-squid:S106#"9Replace this use of System.out or System.err by a logger.(âğÖıÿÿÿÿ8Â¾È‹¤-
-gsquid:S2147("DCombine this catch with the one at line 38, which has the same body.(Ìÿô€ÿÿÿÿÿ8Â¾È‹¤-
+squid:S106"9Replace this use of System.out or System.err by a logger.(­ëè€úÿÿÿÿ8Â¾È‹¤-
 V
 squid:S106!"9Replace this use of System.out or System.err by a logger.(§ÒÖ½8Â¾È‹¤-
+nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¥¢¸İûÿÿÿÿ8û˜¾¤¨-
+gsquid:S2147."DCombine this catch with the one at line 38, which has the same body.(Àô Ïüÿÿÿÿ8Û¦ë§-
 [
-squid:S106""9Replace this use of System.out or System.err by a logger.(‚öÔÆúÿÿÿÿ8Â¾È‹¤-
+squid:S106"9Replace this use of System.out or System.err by a logger.(–ßí·ıÿÿÿÿ8Â¾È‹¤-
 U
 squid:S106"9Replace this use of System.out or System.err by a logger.(üĞÛ8Â¾È‹¤-
 [
-squid:S106"9Replace this use of System.out or System.err by a logger.(­ëè€úÿÿÿÿ8Â¾È‹¤-
+squid:S106"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8Â¾È‹¤-
+[
+squid:S106#"9Replace this use of System.out or System.err by a logger.(âğÖıÿÿÿÿ8Â¾È‹¤-
+[
+squid:S106""9Replace this use of System.out or System.err by a logger.(‚öÔÆúÿÿÿÿ8Â¾È‹¤-
 [
 squid:S106"9Replace this use of System.out or System.err by a logger.(øÊ«‰ıÿÿÿÿ8Â¾È‹¤-
-gsquid:S2147."DCombine this catch with the one at line 38, which has the same body.(Àô Ïüÿÿÿÿ8Û¦ë§-
-V
-squid:S106 "9Replace this use of System.out or System.err by a logger.(Íéàô8Â¾È‹¤-
 U
 squid:S106%"9Replace this use of System.out or System.err by a logger.(üĞÛ8Â¾È‹¤-
-Fsquid:S1148/"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Û¦ë§-
-nsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¥¢¸İûÿÿÿÿ8û˜¾¤¨-
-gsquid:S2147,"DCombine this catch with the one at line 38, which has the same body.(’‰¨üùÿÿÿÿ8ê‹ƒ¦-
-Fsquid:S1148)"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Â¾È‹¤-
+gsquid:S2147("DCombine this catch with the one at line 38, which has the same body.(Ìÿô€ÿÿÿÿÿ8Â¾È‹¤-
 [
-squid:S106"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8Â¾È‹¤-
-Fsquid:S1148-"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ê‹ƒ¦-
+squid:S106$"9Replace this use of System.out or System.err by a logger.(ªÓ¼áşÿÿÿÿ8Â¾È‹¤-
+V
+squid:S106 "9Replace this use of System.out or System.err by a logger.(Íéàô8Â¾È‹¤-
+gsquid:S2147,"DCombine this catch with the one at line 38, which has the same body.(’‰¨üùÿÿÿÿ8ê‹ƒ¦-
