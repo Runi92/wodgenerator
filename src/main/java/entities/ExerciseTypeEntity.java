@@ -20,7 +20,10 @@ public class ExerciseTypeEntity {
     private int id;
     private String name;
     @OneToMany
-    @JoinTable(name = "exercise_exercisetype", joinColumns = {@JoinColumn(name = "exercise_id")})
+    @JoinTable(
+            name = "exercise_exercisetype",
+            joinColumns = @JoinColumn(name = "exercisetype_id"),
+            inverseJoinColumns = @JoinColumn(name = "exercise_id"))
     private List<ExerciseEntity> exerciseEntities;
 
     @Override

@@ -77,14 +77,6 @@ X
 (src/main/resources/schemas/fiveDaySchema,f\5\f5cde400478d0da40d83433d628c10a32e9c7e37
 S
 #src/main/resources/log4j.properties,7\5\755950bb690295904a49d36e60958901c54013b8
-N
-webapp/resources/css/style.css,4\d\4df7a92699fffbf012c2cf47ba29b4ea5691914c
-O
-webapp/WEB-INF/faces-config.xml,f\6\f65a8a2c92f799a902b838ecea513ab01f23f441
-F
-webapp/WEB-INF/web.xml,1\7\17acf86fbbd0ea8e42ee5c9a7dff786e586719c8
-B
-webapp/index.xhtml,c\6\c67a6d6588bc7f05d5a5a79e19a251ede5285d02
 Z
 *src/main/java/entities/ExerciseEntity.java,6\b\6bc41051897d31f85e2edf3b834b046ef19672e2
 ^
@@ -115,3 +107,9 @@ Y
 )src/test/java/beans/ExerciseBeanTest.java,4\c\4ca90550ee6c42b73ad6aea548cfa5edc6a26741
 T
 $src/main/resources/hibernate.cfg.xml,3\1\3176feae82bf4ff4f68f72c9d6d3b850a3110c22
+C
+web/WEB-INF/web.xml,c\d\cdcc12da5c4054f6995aab32914d7e0243194c05
+K
+web/resources/css/style.css,3\7\375acd7574aed3a6619a1b3253449cbd745bc078
+?
+web/index.xhtml,2\2\2213a10824bbea9f4859a4feadc72aabfbc2f80f
