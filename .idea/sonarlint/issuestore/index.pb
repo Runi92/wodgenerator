@@ -95,8 +95,6 @@ X
 +src/main/java/entities/SecValuesEntity.java,8\e\8ef1a38d0c2cc8b100f5a85ab357cae28126320e
 d
 4src/main/java/utils/HibernateSessionFactoryUtil.java,c\8\c8f5707b7803865ad6eb902517abadb492227293
-G
-src/main/java/Main.java,e\4\e44a8606ce010ad9b89aafdfcee2ab49afbf6d10
 R
 "src/main/java/dao/ExerciseDAO.java,4\6\460fe6a624f70e32df88865f22d38830d1f654ef
 V
@@ -113,3 +111,9 @@ K
 web/resources/css/style.css,3\7\375acd7574aed3a6619a1b3253449cbd745bc078
 ?
 web/index.xhtml,2\2\2213a10824bbea9f4859a4feadc72aabfbc2f80f
+L
+web/WEB-INF/faces-config.xml,9\9\99b16d0fbf6b6cc43bc74c21b6854812f1b56330
+9
+	changelog,4\6\46e2bfdf35ce8caa4b542110e7ed030b6b9fb042
+P
+ web/dialogs/addExerciseDlg.xhtml,1\9\19a5f97d2188dc9749f220d30a44ebacf356158b

@@ -5,23 +5,50 @@ import dao.ExerciseDAOImpl;
 import entities.ExerciseEntity;
 import lombok.Getter;
 import lombok.Setter;
+import org.primefaces.event.CellEditEvent;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.List;
 
-@SessionScoped
-@ManagedBean(name = "exercise")
+@ViewScoped
+@ManagedBean(name = "exerciseBean")
 @Getter
 @Setter
 public class ExerciseBean {
 
     private String exerciseName;
+    private List<ExerciseEntity> exercises;
+    private List<ExerciseEntity> selectedExercises;
+
+    public ExerciseBean() {
+        exercises = findAllExercise();
+    }
 
     private ExerciseDAO exerciseDAO = new ExerciseDAOImpl();
 
     public void addExercise() {
         saveExercise(ExerciseEntity.builder().name(exerciseName).build());
+    }
+
+    public void showAllExercises() {
+        exercises = findAllExercise();
+    }
+
+    public void editExercise(CellEditEvent event) {
+        String exerciseOldName = (String) event.getOldValue();
+        String updatedExerciseName = (String) event.getNewValue();
+        if (updatedExerciseName != null && !updatedExerciseName.equals(exerciseOldName)) {
+            ExerciseEntity exerciseEntity = findExerciseById(Integer.parseInt(event.getRowKey()));
+            exerciseEntity.setName(updatedExerciseName);
+            updateExercise(exerciseEntity);
+            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO,
+                    "Изменено название упражнения",
+                    String.join(" ", "Старое название", exerciseOldName, ", новое название", updatedExerciseName));
+            FacesContext.getCurrentInstance().addMessage(null, facesMessage);
+        }
     }
 
     public ExerciseEntity findExerciseById(int id) {

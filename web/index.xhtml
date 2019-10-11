@@ -23,31 +23,35 @@
              <p:growl id="message" showDetail="true"/>
              <p:tabView id="tabView">
                  <p:tab id="exerciseTab" title="Упражнения">
-                     <h:panelGrid columns="3" cellpadding="10">
-                         <p:commandButton id="addExercise" value="Добавить" onclick="PF('addExerciseDialog').show();" icon="pi pi-plus"/>
-                         <p:commandButton id="changeExercise" value="Изменить" icon="pi pi-cog"/>
-                         <p:commandButton id="deleteExercise" value="Удалить" icon="pi pi-minus"/>
+                     <h:panelGrid columns="4">
+                         <p:commandButton id="refreshExercises" value="Обновить" update="exercisesDataTable" action="#{exerciseBean.showAllExercises}"/>
+                         <p:commandButton id="addExercise" value="Добавить" onclick="PF('addExerciseDialog').show();"/>
+                         <p:commandButton id="changeExercise" value="Изменить"/>
+                         <p:commandButton id="deleteExercise" value="Удалить"/>
                      </h:panelGrid>
+                     <p:dataTable
+                             id="exercisesDataTable"
+                             var="exercise"
+                             rowKey="#{exercise.id}"
+                             value="#{exerciseBean.exercises}"
+                             style="width:100%"
+                             selectionMode="multiple"
+                             selection="#{exerciseBean.selectedExercises}"
+                             editable="true" editMode="cell">
+                         <p:ajax event="cellEdit" listener="#{exerciseBean.editExercise}"/>
+                         <p:column headerText="Название упражнения">
+                             <p:cellEditor>
+                                 <f:facet name="output"><h:outputText value="#{exercise.name}"/> </f:facet>
+                                 <f:facet name="input"><p:inputText value="#{exercise.name}" label="Наименование"/> </f:facet>
+                             </p:cellEditor>
+                         </p:column>
+                     </p:dataTable>
                  </p:tab>
              </p:tabView>
          </h:form>
-
-          <p:dialog header="Добавить упражнение" widgetVar="addExerciseDialog">
-              <h:form id="addExerciseDlgForm">
-                  <h:panelGrid columns="2" cellpadding="10">
-                      <p:outputLabel value="Наименование упражнения"/>
-                      <p:inputText value="#{exercise.exerciseName}"/>
-                      <f:facet name="footer">
-                          <p:commandButton value="Добавть" action="#{exercise.addExercise}"/>
-                          <p:commandButton value="Отмена" onclick="PF('addExerciseDialog').hide()"/>
-                      </f:facet>
-                  </h:panelGrid>
-
-              </h:form>
-
-
+          <p:dialog widgetVar="addExerciseDialog">
+              <ui:include src="dialogs/addExerciseDlg.xhtml"/>
           </p:dialog>
-
       </h:body>
    </f:view>
 </html>
