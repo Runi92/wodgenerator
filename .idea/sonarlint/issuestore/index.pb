@@ -117,3 +117,15 @@ L
 	changelog,4\6\46e2bfdf35ce8caa4b542110e7ed030b6b9fb042
 P
  web/dialogs/addExerciseDlg.xhtml,1\9\19a5f97d2188dc9749f220d30a44ebacf356158b
+J
+web/tabs/exerciseTab.xhtml,e\3\e3fc82ba2ff93579933856724ac2781a84786207
+N
+web/tabs/exerciseTypeTab.xhtml,0\e\0eb290abe917eef4066bfb90cd340829d8e7adab
+Y
+)src/main/java/beans/ExerciseTypeBean.java,6\8\6847a94690a56a0fb0203dc217f66e5f426698a8
+Z
+*src/main/java/dao/ExerciseTypeDAOImpl.java,5\b\5b0425db81feb6d99c47de6e9f78fe98923fda15
+V
+&src/main/java/dao/ExerciseTypeDAO.java,4\9\494da042309c9e2dbf08da8f350f727ef698a8f2
+T
+$web/dialogs/addExerciseTypeDlg.xhtml,b\3\b37d624c3f3e2713bfc1cfc57ad89a7433ef2506

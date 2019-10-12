@@ -44,10 +44,12 @@ public class ExerciseBean {
             ExerciseEntity exerciseEntity = findExerciseById(Integer.parseInt(event.getRowKey()));
             exerciseEntity.setName(updatedExerciseName);
             updateExercise(exerciseEntity);
-            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO,
-                    "Изменено название упражнения",
-                    String.join(" ", "Старое название", exerciseOldName, ", новое название", updatedExerciseName));
-            FacesContext.getCurrentInstance().addMessage(null, facesMessage);
+        }
+    }
+
+    public void deleteSelectedExercises() {
+        for (ExerciseEntity exerciseEntity : selectedExercises) {
+            deleteExercise(exerciseEntity);
         }
     }
 
