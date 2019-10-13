@@ -24,7 +24,7 @@ public class HibernateSessionFactoryUtil {
                 configuration.addAnnotatedClass(MetterValuesEntity.class);
                 configuration.addAnnotatedClass(RepValuesEntity.class);
                 configuration.addAnnotatedClass(SecValuesEntity.class);
-                configuration.addAnnotatedClass(TrainingPartEnum.class);
+                configuration.addAnnotatedClass(TrainingPartEntity.class);
                 configuration.addAnnotatedClass(ValuesEntity.class);
                 StandardServiceRegistryBuilder standardServiceRegistryBuilder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(standardServiceRegistryBuilder.build());

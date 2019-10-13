@@ -115,17 +115,27 @@ L
 web/WEB-INF/faces-config.xml,9\9\99b16d0fbf6b6cc43bc74c21b6854812f1b56330
 9
 	changelog,4\6\46e2bfdf35ce8caa4b542110e7ed030b6b9fb042
-P
- web/dialogs/addExerciseDlg.xhtml,1\9\19a5f97d2188dc9749f220d30a44ebacf356158b
-J
-web/tabs/exerciseTab.xhtml,e\3\e3fc82ba2ff93579933856724ac2781a84786207
-N
-web/tabs/exerciseTypeTab.xhtml,0\e\0eb290abe917eef4066bfb90cd340829d8e7adab
 Y
 )src/main/java/beans/ExerciseTypeBean.java,6\8\6847a94690a56a0fb0203dc217f66e5f426698a8
 Z
 *src/main/java/dao/ExerciseTypeDAOImpl.java,5\b\5b0425db81feb6d99c47de6e9f78fe98923fda15
 V
 &src/main/java/dao/ExerciseTypeDAO.java,4\9\494da042309c9e2dbf08da8f350f727ef698a8f2
-T
-$web/dialogs/addExerciseTypeDlg.xhtml,b\3\b37d624c3f3e2713bfc1cfc57ad89a7433ef2506
+H
+web/tabs/configTab.xhtml,9\0\90cea14eb9c67e86496d820298e3628fd18048d1
+E
+web/tabs/schema.xhtml,c\8\c8649eecd8707b03b49fa2812c15a9c2bceb421b
+V
+&src/main/java/dao/TrainingPartDAO.java,5\d\5de0f5d5087d5acc4be883c918610ff2ed304770
+Z
+*src/main/java/dao/TrainingPartDAOImpl.java,2\b\2bf2a34875dce45343a6e44a4efe007d771f63fe
+X
+(web/tabs/configTab/exerciseTypeTab.xhtml,4\1\4118ecc9df9279a8c8b0e3057e055a1919c7a55f
+b
+2web/dialogs/configDialogs/addExerciseTypeDlg.xhtml,9\3\93e54b9601ed69bf2d26f172469a2d4fe0eff130
+X
+(web/tabs/configTab/trainingPartTab.xhtml,5\f\5f49b1dc92d05cf2df739c40feccab149e2914e5
+b
+2web/dialogs/configDialogs/addTrainingPartDlg.xhtml,7\9\7902fba7dd8db1304d892b7ec1b1214fec2bbce2
+Y
+)src/main/java/beans/TrainingPartBean.java,1\e\1e558459bbe5a899278e6d3a55185d106ed05e9b

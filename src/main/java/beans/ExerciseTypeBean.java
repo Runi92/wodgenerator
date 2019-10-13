@@ -51,23 +51,23 @@ public class ExerciseTypeBean {
         }
     }
 
-    private ExerciseTypeEntity findExerciseTypeById(int id) {
+    public ExerciseTypeEntity findExerciseTypeById(int id) {
         return exerciseTypeDAO.findById(id);
     }
 
-    private void saveExerciseType(ExerciseTypeEntity exerciseTypeEntity) {
+    public void saveExerciseType(ExerciseTypeEntity exerciseTypeEntity) {
         exerciseTypeDAO.save(exerciseTypeEntity);
     }
 
-    private void deleteExerciseTypes(ExerciseTypeEntity exerciseTypeEntity) {
+    public void deleteExerciseTypes(ExerciseTypeEntity exerciseTypeEntity) {
         exerciseTypeDAO.delete(exerciseTypeEntity);
     }
 
-    private void updateExerciseType(ExerciseTypeEntity exerciseTypeEntity) {
+    public void updateExerciseType(ExerciseTypeEntity exerciseTypeEntity) {
         exerciseTypeDAO.update(exerciseTypeEntity);
     }
 
-    private List<ExerciseTypeEntity> findAllExerciseTypes() {
+    public List<ExerciseTypeEntity> findAllExerciseTypes() {
         return exerciseTypeDAO.findAll();
     }
 }
