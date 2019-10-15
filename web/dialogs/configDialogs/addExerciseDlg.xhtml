@@ -4,14 +4,21 @@
 <html xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-    <h:form id="addExerciseDlgForm">
-        <h:panelGrid columns="2" cellpadding="10">
-            <p:outputLabel value="Наименование упражнения"/>
-            <p:inputText value="#{exerciseBean.exerciseName}"/>
-            <f:facet name="footer">
-                <p:commandButton value="Добавить" action="#{exerciseBean.addExercise}"/>
-                <p:commandButton value="Отмена" onclick="PF('addExerciseDialog').hide()"/>
-            </f:facet>
-        </h:panelGrid>
-    </h:form>
+<h:form id="addExerciseDlgForm">
+    <h:panelGrid columns="2" cellpadding="10">
+        <p:outputLabel value="Наименование упражнения"/>
+        <p:inputText value="#{exerciseBean.exerciseName}"/>
+        <p:outputLabel value="Тип упражнения" for="exerciseTypeSelectOneMenu"/>
+        <p:selectOneMenu id="exerciseTypeSelectOneMenu" value="#{exerciseBean.exerciseTypeEntity}" dynamic="true"
+                         label="#{exerciseTypeBean.exerciseTypeSelectLabel}">
+            <f:selectItem itemLabel="#{exerciseTypeBean.exerciseTypeSelectItem}"/>
+            <f:selectItems value="#{exerciseTypeBean.exerciseTypes}"/>
+        </p:selectOneMenu>
+        <f:facet name="footer">
+            <p:commandButton id="addExerciseButton" value="Добавить" action="#{exerciseBean.addExercise}"
+                             update="mainTabView:tabView:exerciseTabForm:exercisesDataTable"/>
+            <p:commandButton value="Закрыть" onclick="PF('addExerciseDialog').hide()"/>
+        </f:facet>
+    </h:panelGrid>
+</h:form>
 </html>

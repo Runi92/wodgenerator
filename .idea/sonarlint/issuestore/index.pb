@@ -139,3 +139,7 @@ b
 2web/dialogs/configDialogs/addTrainingPartDlg.xhtml,7\9\7902fba7dd8db1304d892b7ec1b1214fec2bbce2
 Y
 )src/main/java/beans/TrainingPartBean.java,1\e\1e558459bbe5a899278e6d3a55185d106ed05e9b
+^
+.web/dialogs/configDialogs/addExerciseDlg.xhtml,5\6\569b2c8dafc4cc41d8b977e25cfdf52910214891
+T
+$web/tabs/configTab/exerciseTab.xhtml,7\c\7c14e692f8594ea634b97ffaf2e3805b5bd4fefe

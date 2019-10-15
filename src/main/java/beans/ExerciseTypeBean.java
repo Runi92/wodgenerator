@@ -17,18 +17,27 @@ import java.util.List;
 @Setter
 public class ExerciseTypeBean {
 
+    private static final String EXERCISE_TYPES_MISSING = "Типы упражнений отсутствуют";
+    private static final String CHOSE_EXERCISE_TYPE = "Выберете тип упражения";
+    private static final String ADD_EXERCISE_TYPES = "Добавьте типы упражений";
+
     private String exerciseTypeName;
     private List<ExerciseTypeEntity> exerciseTypes;
     private List<ExerciseTypeEntity> selectedExerciseTypes;
+    private String exerciseTypeSelectItem;
+    private String exerciseTypeSelectLabel;
 
     public ExerciseTypeBean() {
         exerciseTypes = findAllExerciseTypes();
+        exerciseTypeSelectItem = exerciseTypes.isEmpty() ? EXERCISE_TYPES_MISSING : CHOSE_EXERCISE_TYPE;
+        exerciseTypeSelectLabel = exerciseTypes.isEmpty() ? ADD_EXERCISE_TYPES : CHOSE_EXERCISE_TYPE;
     }
 
     private ExerciseTypeDAO exerciseTypeDAO = new ExerciseTypeDAOImpl();
 
     public void addExerciseType() {
         saveExerciseType(ExerciseTypeEntity.builder().name(exerciseTypeName).build());
+        showAllExerciseTypes();
     }
 
     public void showAllExerciseTypes() {
@@ -49,6 +58,7 @@ public class ExerciseTypeBean {
         for (ExerciseTypeEntity exerciseTypeEntity : selectedExerciseTypes) {
             deleteExerciseTypes(exerciseTypeEntity);
         }
+        showAllExerciseTypes();
     }
 
     public ExerciseTypeEntity findExerciseTypeById(int id) {

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+<html xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
-         <h:form id="tabForm">
-             <p:growl id="message" showDetail="true"/>
              <p:tabView id="tabView">
                  <p:tab id="exerciseTab" title="Упражнения">
                      <ui:include src="configTab/exerciseTab.xhtml"/>
@@ -17,14 +14,4 @@
                      <ui:include src="configTab/trainingPartTab.xhtml"/>
                  </p:tab>
              </p:tabView>
-         </h:form>
-          <p:dialog widgetVar="addExerciseDialog" resizable="false">
-              <ui:include src="../dialogs/configDialogs/addExerciseDlg.xhtml"/>
-          </p:dialog>
-          <p:dialog widgetVar="addExerciseTypeDialog" resizable="false">
-              <ui:include src="../dialogs/configDialogs/addExerciseTypeDlg.xhtml"/>
-          </p:dialog>
-          <p:dialog widgetVar="addTrainingPartDialog" resizable="false">
-              <ui:include src="../dialogs/configDialogs/addTrainingPartDlg.xhtml"/>
-          </p:dialog>
 </html>

@@ -9,8 +9,8 @@
         <p:outputLabel value="Часть тренировки"/>
         <p:inputText value="#{trainingPartBean.trainingPartName}"/>
         <f:facet name="footer">
-            <p:commandButton value="Добавить" action="#{trainingPartBean.addTrainingPart}"/>
-            <p:commandButton value="Отмена" onclick="PF('addTrainingPartDialog').hide()"/>
+            <p:commandButton value="Добавить" action="#{trainingPartBean.addTrainingPart}" update="mainTabView:tabView:trainingPartTabForm:trainingPartDataTable"/>
+            <p:commandButton value="Закрыть" onclick="PF('addTrainingPartDialog').hide()"/>
         </f:facet>
     </h:panelGrid>
 </h:form>

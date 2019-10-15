@@ -29,6 +29,7 @@ public class TrainingPartBean {
 
     public void addTrainingPart() {
         saveTrainingPart(TrainingPartEntity.builder().name(trainingPartName).build());
+        showAllTrainingParts();
     }
 
     public void showAllTrainingParts() {
@@ -49,6 +50,7 @@ public class TrainingPartBean {
         for (TrainingPartEntity trainingPartEntity : selectedTrainingParts) {
             deleteTrainingPart(trainingPartEntity);
         }
+        showAllTrainingParts();
     }
 
     public TrainingPartEntity findTrainingPartById(int id) {

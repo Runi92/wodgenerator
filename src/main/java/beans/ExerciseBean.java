@@ -3,6 +3,7 @@ package beans;
 import dao.ExerciseDAO;
 import dao.ExerciseDAOImpl;
 import entities.ExerciseEntity;
+import entities.ExerciseTypeEntity;
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.event.CellEditEvent;
@@ -22,6 +23,7 @@ public class ExerciseBean {
     private String exerciseName;
     private List<ExerciseEntity> exercises;
     private List<ExerciseEntity> selectedExercises;
+    private ExerciseTypeEntity exerciseTypeEntity;
 
     public ExerciseBean() {
         exercises = findAllExercise();
@@ -30,7 +32,8 @@ public class ExerciseBean {
     private ExerciseDAO exerciseDAO = new ExerciseDAOImpl();
 
     public void addExercise() {
-        saveExercise(ExerciseEntity.builder().name(exerciseName).build());
+        saveExercise(ExerciseEntity.builder().name(exerciseName).exerciseTypeEntity(exerciseTypeEntity).build());
+        showAllExercises();
     }
 
     public void showAllExercises() {
@@ -51,6 +54,7 @@ public class ExerciseBean {
         for (ExerciseEntity exerciseEntity : selectedExercises) {
             deleteExercise(exerciseEntity);
         }
+        showAllExercises();
     }
 
     public ExerciseEntity findExerciseById(int id) {
