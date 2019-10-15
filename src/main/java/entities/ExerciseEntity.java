@@ -16,9 +16,12 @@ public class ExerciseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    /*@ManyToOne
-    @JoinTable(name = "exercise_exercisetype", joinColumns = {@JoinColumn(name = "exercisetype_id")}, schema = "public")
-    private ExerciseTypeEntity exerciseTypeEntity;*/
+    @ManyToOne
+    @JoinTable(
+            name = "exercise_exercisetype",
+            joinColumns = @JoinColumn(name = "exercise_id"),
+            inverseJoinColumns = @JoinColumn(name = "exercisetype_id"))
+    private ExerciseTypeEntity exerciseTypeEntity;
 
     @Override
     public String toString() {

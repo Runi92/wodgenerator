@@ -10,6 +10,7 @@ import org.primefaces.event.CellEditEvent;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.List;
@@ -23,7 +24,10 @@ public class ExerciseBean {
     private String exerciseName;
     private List<ExerciseEntity> exercises;
     private List<ExerciseEntity> selectedExercises;
-    private ExerciseTypeEntity exerciseTypeEntity;
+    private int exerciseTypeEntityId;
+
+    @ManagedProperty(value = "#{exerciseTypeBean}")
+    private ExerciseTypeBean exerciseTypeBean;
 
     public ExerciseBean() {
         exercises = findAllExercise();
@@ -32,7 +36,12 @@ public class ExerciseBean {
     private ExerciseDAO exerciseDAO = new ExerciseDAOImpl();
 
     public void addExercise() {
-        saveExercise(ExerciseEntity.builder().name(exerciseName).exerciseTypeEntity(exerciseTypeEntity).build());
+        saveExercise(
+                ExerciseEntity.
+                        builder().
+                        name(exerciseName).
+                        exerciseTypeEntity(exerciseTypeBean.findExerciseTypeById(exerciseTypeEntityId)).
+                        build());
         showAllExercises();
     }
 

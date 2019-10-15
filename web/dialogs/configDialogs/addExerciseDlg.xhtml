@@ -9,10 +9,13 @@
         <p:outputLabel value="Наименование упражнения"/>
         <p:inputText value="#{exerciseBean.exerciseName}"/>
         <p:outputLabel value="Тип упражнения" for="exerciseTypeSelectOneMenu"/>
-        <p:selectOneMenu id="exerciseTypeSelectOneMenu" value="#{exerciseBean.exerciseTypeEntity}" dynamic="true"
+        <p:selectOneMenu id="exerciseTypeSelectOneMenu" value="#{exerciseBean.exerciseTypeEntityId}" dynamic="true"
                          label="#{exerciseTypeBean.exerciseTypeSelectLabel}">
             <f:selectItem itemLabel="#{exerciseTypeBean.exerciseTypeSelectItem}"/>
-            <f:selectItems value="#{exerciseTypeBean.exerciseTypes}"/>
+            <f:selectItems
+                    value="#{exerciseTypeBean.exerciseTypes}" var="exerciseType"
+                    itemLabel="#{exerciseType.name}"
+                    itemValue="#{exerciseType.id}"/>
         </p:selectOneMenu>
         <f:facet name="footer">
             <p:commandButton id="addExerciseButton" value="Добавить" action="#{exerciseBean.addExercise}"
