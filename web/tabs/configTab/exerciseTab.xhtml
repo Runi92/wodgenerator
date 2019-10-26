@@ -28,9 +28,22 @@
                 <f:facet name="input"><p:inputText value="#{exercise.name}" label="Наименование"/> </f:facet>
             </p:cellEditor>
         </p:column>
+        <p:column headerText="Тип упражения">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{exercise.exerciseTypeEntity.name}"/> </f:facet>
+                <f:facet name="input">
+                    <p:selectOneMenu value="#{exerciseBean.exerciseTypeEntityId}" dynamic="true">
+                        <f:selectItems
+                                value="#{exerciseTypeBean.exerciseTypes}" var="exerciseType"
+                                itemLabel="#{exerciseType.name}"
+                                itemValue="#{exerciseType.id}"/>
+                    </p:selectOneMenu>
+                </f:facet>
+            </p:cellEditor>
+        </p:column>
     </p:dataTable>
 </h:form>
-<p:dialog widgetVar="addExerciseDialog" resizable="false" closable="false">
+<p:dialog widgetVar="addExerciseDialog" resizable="false" closable="false" modal="true">
     <ui:include src="../../dialogs/configDialogs/addExerciseDlg.xhtml"/>
 </p:dialog>
 </html>

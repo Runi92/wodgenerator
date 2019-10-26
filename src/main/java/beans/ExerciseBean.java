@@ -4,16 +4,22 @@ import dao.ExerciseDAO;
 import dao.ExerciseDAOImpl;
 import entities.ExerciseEntity;
 import entities.ExerciseTypeEntity;
+import entities.TrainingPartEntity;
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.event.CellEditEvent;
+import org.primefaces.event.RowEditEvent;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @ViewScoped
 @ManagedBean(name = "exerciseBean")
@@ -21,13 +27,17 @@ import java.util.List;
 @Setter
 public class ExerciseBean {
 
+    private int exerciseTypeEntityId;
     private String exerciseName;
     private List<ExerciseEntity> exercises;
     private List<ExerciseEntity> selectedExercises;
-    private int exerciseTypeEntityId;
+    private List<Integer> exerciseTrainingPartIds;
 
     @ManagedProperty(value = "#{exerciseTypeBean}")
     private ExerciseTypeBean exerciseTypeBean;
+
+    @ManagedProperty(value = "#{trainingPartBean}")
+    private TrainingPartBean trainingPartBean;
 
     public ExerciseBean() {
         exercises = findAllExercise();
@@ -36,11 +46,16 @@ public class ExerciseBean {
     private ExerciseDAO exerciseDAO = new ExerciseDAOImpl();
 
     public void addExercise() {
+        List<TrainingPartEntity> exerciseTrainingParts = new ArrayList<>();
+        for (Integer exerciseTrainingPartId: exerciseTrainingPartIds) {
+            exerciseTrainingParts.add(trainingPartBean.findTrainingPartById(exerciseTrainingPartId));
+        }
         saveExercise(
                 ExerciseEntity.
                         builder().
                         name(exerciseName).
                         exerciseTypeEntity(exerciseTypeBean.findExerciseTypeById(exerciseTypeEntityId)).
+                        trainingPartEntities(exerciseTrainingParts).
                         build());
         showAllExercises();
     }
@@ -49,14 +64,15 @@ public class ExerciseBean {
         exercises = findAllExercise();
     }
 
-    public void editExercise(CellEditEvent event) {
-        String exerciseOldName = (String) event.getOldValue();
+    public void editExercise(RowEditEvent event) {
+        System.out.println();
+        /*String exerciseOldName = (String) event.getOldValue();
         String updatedExerciseName = (String) event.getNewValue();
         if (updatedExerciseName != null && !updatedExerciseName.equals(exerciseOldName)) {
             ExerciseEntity exerciseEntity = findExerciseById(Integer.parseInt(event.getRowKey()));
             exerciseEntity.setName(updatedExerciseName);
             updateExercise(exerciseEntity);
-        }
+        }*/
     }
 
     public void deleteSelectedExercises() {
