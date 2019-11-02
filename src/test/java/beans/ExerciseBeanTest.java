@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -73,5 +74,14 @@ public class ExerciseBeanTest {
     public void findAllExercise() {
         List<ExerciseEntity> exerciseEntities = exerciseBean.findAllExercise();
         System.out.println(exerciseEntities);
+    }
+
+    @Test
+    public void addExercise() {
+        List<Integer> testIntegerList = new ArrayList<>();
+        testIntegerList.add(1);
+        for (int i = 0; i < testIntegerList.size(); i++) {
+            System.out.println(testIntegerList.get(i).getClass());
+        }
     }
 }

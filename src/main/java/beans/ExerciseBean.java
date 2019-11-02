@@ -31,7 +31,7 @@ public class ExerciseBean {
     private String exerciseName;
     private List<ExerciseEntity> exercises;
     private List<ExerciseEntity> selectedExercises;
-    private List<Integer> exerciseTrainingPartIds;
+    private List<String> exerciseTrainingPartIds;
 
     @ManagedProperty(value = "#{exerciseTypeBean}")
     private ExerciseTypeBean exerciseTypeBean;
@@ -46,16 +46,13 @@ public class ExerciseBean {
     private ExerciseDAO exerciseDAO = new ExerciseDAOImpl();
 
     public void addExercise() {
-        List<TrainingPartEntity> exerciseTrainingParts = new ArrayList<>();
-        for (Integer exerciseTrainingPartId: exerciseTrainingPartIds) {
-            exerciseTrainingParts.add(trainingPartBean.findTrainingPartById(exerciseTrainingPartId));
-        }
         saveExercise(
                 ExerciseEntity.
                         builder().
                         name(exerciseName).
                         exerciseTypeEntity(exerciseTypeBean.findExerciseTypeById(exerciseTypeEntityId)).
-                        trainingPartEntities(exerciseTrainingParts).
+//                        Arrays.stream(exerciseTrainingPartIds.toArray()).map(id -> trainingPartBean.findTrainingPartById(Integer.parseInt((String)id))).collect(Collectors.toList());
+                        trainingPartEntities(Arrays.stream(exerciseTrainingPartIds.toArray()).map(id -> trainingPartBean.findTrainingPartById((int)id)).collect(Collectors.toList())).
                         build());
         showAllExercises();
     }
