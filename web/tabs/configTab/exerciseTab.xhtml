@@ -20,7 +20,7 @@
             style="width:100%"
             selection="#{exerciseBean.selectedExercises}"
             editable="true" editMode="cell">
-        <p:ajax event="cellEdit" listener="#{exerciseBean.editExercise}"/>
+        <p:ajax event="rowEdit" listener="#{exerciseBean.editExercise}"/>
         <p:column selectionMode="multiple" style="width:10%;text-align:center"/>
         <p:column headerText="Название упражнения">
             <p:cellEditor>
@@ -38,6 +38,19 @@
                                 itemLabel="#{exerciseType.name}"
                                 itemValue="#{exerciseType.id}"/>
                     </p:selectOneMenu>
+                </f:facet>
+            </p:cellEditor>
+        </p:column>
+        <p:column headerText="Часть тренировки">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{exercise.trainingPartEntities}"/> </f:facet>
+                <f:facet name="input">
+                    <p:selectCheckboxMenu value="#{exerciseBean.exerciseTrainingPartIds}" label="Часть тренировки" filter="true" filterMatchMode="startsWith">
+                        <f:selectItems
+                            value="#{trainingPartBean.trainingParts}" var="trainingPart"
+                            itemLabel="#{trainingPart.name}"
+                            itemValue="#{trainingPart.id}"/>
+                    </p:selectCheckboxMenu>
                 </f:facet>
             </p:cellEditor>
         </p:column>

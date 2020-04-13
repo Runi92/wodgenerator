@@ -1,10 +1,7 @@
 package beans;
 
 import entities.ExerciseEntity;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +10,7 @@ import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
 
+@Ignore
 public class ExerciseBeanTest {
 
     private static final String SNATCH = "snatch";

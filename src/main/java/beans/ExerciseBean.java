@@ -1,25 +1,17 @@
 package beans;
 
-import dao.ExerciseDAO;
 import dao.ExerciseDAOImpl;
 import entities.ExerciseEntity;
-import entities.ExerciseTypeEntity;
-import entities.TrainingPartEntity;
 import lombok.Getter;
 import lombok.Setter;
-import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @ViewScoped
 @ManagedBean(name = "exerciseBean")
@@ -43,7 +35,7 @@ public class ExerciseBean {
         exercises = findAllExercise();
     }
 
-    private ExerciseDAO exerciseDAO = new ExerciseDAOImpl();
+    private ExerciseDAOImpl exerciseDAO = new ExerciseDAOImpl();
 
     public void addExercise() {
         saveExercise(
@@ -51,8 +43,7 @@ public class ExerciseBean {
                         builder().
                         name(exerciseName).
                         exerciseTypeEntity(exerciseTypeBean.findExerciseTypeById(exerciseTypeEntityId)).
-//                        Arrays.stream(exerciseTrainingPartIds.toArray()).map(id -> trainingPartBean.findTrainingPartById(Integer.parseInt((String)id))).collect(Collectors.toList());
-                        trainingPartEntities(Arrays.stream(exerciseTrainingPartIds.toArray()).map(id -> trainingPartBean.findTrainingPartById((int)id)).collect(Collectors.toList())).
+                        trainingPartEntities(Arrays.stream(exerciseTrainingPartIds.toArray()).map(id -> trainingPartBean.findTrainingPartById(Integer.parseInt((String)id))).collect(Collectors.toList())).
                         build());
         showAllExercises();
     }
@@ -62,7 +53,8 @@ public class ExerciseBean {
     }
 
     public void editExercise(RowEditEvent event) {
-        System.out.println();
+        //TODO Дописать метод так, чтобы менять можно было любое количество параметров в строке таблицы
+        System.out.println("editExercise");
         /*String exerciseOldName = (String) event.getOldValue();
         String updatedExerciseName = (String) event.getNewValue();
         if (updatedExerciseName != null && !updatedExerciseName.equals(exerciseOldName)) {

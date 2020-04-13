@@ -1,47 +1,48 @@
 package dao;
 
-import entities.ExerciseTypeEntity;
+import entities.MeasurementUnitEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtil;
 
 import java.util.List;
 
-public class ExerciseTypeDAOImpl implements DAO<ExerciseTypeEntity> {
+public class MeasurementUnitDAOImpl implements DAO<MeasurementUnitEntity> {
+
     @Override
-    public ExerciseTypeEntity findById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(ExerciseTypeEntity.class, id);
+    public MeasurementUnitEntity findById(int id) {
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(MeasurementUnitEntity.class, id);
     }
 
     @Override
-    public void save(ExerciseTypeEntity exerciseTypeEntity) {
+    public void save(MeasurementUnitEntity measurementUnitEntity) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(exerciseTypeEntity);
+        session.save(measurementUnitEntity);
         transaction.commit();
         session.close();
     }
 
     @Override
-    public void update(ExerciseTypeEntity exerciseTypeEntity) {
+    public void update(MeasurementUnitEntity measurementUnitEntity) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(exerciseTypeEntity);
+        session.update(measurementUnitEntity);
         transaction.commit();
         session.close();
     }
 
     @Override
-    public void delete(ExerciseTypeEntity exerciseTypeEntity) {
+    public void delete(MeasurementUnitEntity measurementUnitEntity) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(exerciseTypeEntity);
+        session.delete(measurementUnitEntity);
         transaction.commit();
         session.close();
     }
 
     @Override
-    public List<ExerciseTypeEntity> findAll() {
-        return (List<ExerciseTypeEntity>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From entities.ExerciseTypeEntity").list();
+    public List<MeasurementUnitEntity> findAll() {
+        return (List<MeasurementUnitEntity>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From entities.MeasurementUnitEntity").list();
     }
 }

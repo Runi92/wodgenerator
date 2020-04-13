@@ -1,6 +1,5 @@
 package beans;
 
-import dao.TrainingPartDAO;
 import dao.TrainingPartDAOImpl;
 import entities.TrainingPartEntity;
 import lombok.Getter;
@@ -25,15 +24,11 @@ public class TrainingPartBean {
         trainingParts = findAllTrainingParts();
     }
 
-    private TrainingPartDAO trainingPartDAO = new TrainingPartDAOImpl();
+    private TrainingPartDAOImpl trainingPartDAO = new TrainingPartDAOImpl();
 
     public void addTrainingPart() {
         saveTrainingPart(TrainingPartEntity.builder().name(trainingPartName).build());
         showAllTrainingParts();
-    }
-
-    public void showAllTrainingParts() {
-        trainingParts = findAllTrainingParts();
     }
 
     public void editTrainingPart(CellEditEvent event) {
@@ -53,23 +48,28 @@ public class TrainingPartBean {
         showAllTrainingParts();
     }
 
-    public TrainingPartEntity findTrainingPartById(int id) {
+    protected TrainingPartEntity findTrainingPartById(int id) {
         return trainingPartDAO.findById(id);
     }
 
-    public void saveTrainingPart(TrainingPartEntity trainingPartEntity) {
+    private void saveTrainingPart(TrainingPartEntity trainingPartEntity) {
         trainingPartDAO.save(trainingPartEntity);
     }
 
-    public void deleteTrainingPart(TrainingPartEntity trainingPartEntity) {
+    private void deleteTrainingPart(TrainingPartEntity trainingPartEntity) {
         trainingPartDAO.delete(trainingPartEntity);
     }
 
-    public void updateTrainingPart(TrainingPartEntity trainingPartEntity) {
+    private void updateTrainingPart(TrainingPartEntity trainingPartEntity) {
         trainingPartDAO.update(trainingPartEntity);
     }
 
     public List<TrainingPartEntity> findAllTrainingParts() {
         return trainingPartDAO.findAll();
     }
+
+    private void showAllTrainingParts() {
+        trainingParts = findAllTrainingParts();
+    }
+
 }

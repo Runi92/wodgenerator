@@ -7,7 +7,7 @@ import utils.HibernateSessionFactoryUtil;
 
 import java.util.List;
 
-public class ExerciseDAOImpl implements ExerciseDAO {
+public class ExerciseDAOImpl implements DAO<ExerciseEntity> {
 
     @Override
     public ExerciseEntity findById(int id) {

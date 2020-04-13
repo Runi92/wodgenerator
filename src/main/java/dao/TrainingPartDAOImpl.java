@@ -7,7 +7,7 @@ import utils.HibernateSessionFactoryUtil;
 
 import java.util.List;
 
-public class TrainingPartDAOImpl implements TrainingPartDAO {
+public class TrainingPartDAOImpl implements DAO<TrainingPartEntity> {
     @Override
     public TrainingPartEntity findById(int id) {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(TrainingPartEntity.class, id);
