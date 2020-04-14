@@ -4,11 +4,15 @@ import dao.ExerciseDAOImpl;
 import entities.ExerciseEntity;
 import lombok.Getter;
 import lombok.Setter;
+import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.component.UIComponentBase;
+import javax.faces.context.FacesContext;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -43,7 +47,7 @@ public class ExerciseBean {
                         builder().
                         name(exerciseName).
                         exerciseTypeEntity(exerciseTypeBean.findExerciseTypeById(exerciseTypeEntityId)).
-                        trainingPartEntities(Arrays.stream(exerciseTrainingPartIds.toArray()).map(id -> trainingPartBean.findTrainingPartById(Integer.parseInt((String)id))).collect(Collectors.toList())).
+                        trainingPartEntities(Arrays.stream(exerciseTrainingPartIds.toArray()).map(id -> trainingPartBean.findTrainingPartById(Integer.parseInt((String) id))).collect(Collectors.toList())).
                         build());
         showAllExercises();
     }
@@ -52,16 +56,43 @@ public class ExerciseBean {
         exercises = findAllExercise();
     }
 
-    public void editExercise(RowEditEvent event) {
+    public void editExercise(CellEditEvent event) {
         //TODO Дописать метод так, чтобы менять можно было любое количество параметров в строке таблицы
-        System.out.println("editExercise");
-        /*String exerciseOldName = (String) event.getOldValue();
+        UIComponentBase currentColumn = (UIComponentBase) event.getColumn();
+        switch (currentColumn.getId()) {
+            case "exerciseNameColumn":
+                editExerciseName(event);
+                break;
+            case "exerciseTypeColumn":
+                editExerciseType(event);
+                break;
+            case "trainingPartColumn":
+                editExerciseTrainingPart(event);
+                break;
+            default:
+                FacesMessage msg = new FacesMessage("Ошибка при редактировании таблицы");
+                FacesContext.getCurrentInstance().addMessage(null, msg);
+        }
+    }
+
+    private void editExerciseName(CellEditEvent event) {
+        String exerciseOldName = (String) event.getOldValue();
         String updatedExerciseName = (String) event.getNewValue();
         if (updatedExerciseName != null && !updatedExerciseName.equals(exerciseOldName)) {
             ExerciseEntity exerciseEntity = findExerciseById(Integer.parseInt(event.getRowKey()));
             exerciseEntity.setName(updatedExerciseName);
             updateExercise(exerciseEntity);
-        }*/
+        }
+    }
+
+    private void editExerciseTrainingPart(CellEditEvent event) {
+        //TODO Дописать метод изменения части тренирвоки - приходит список идентифифкаторов сущности
+        System.out.println();
+    }
+
+    private void editExerciseType(CellEditEvent event) {
+        //TODO Дописать метод изменения типа упражнения - приходит идентифифкатор сущности
+        System.out.println();
     }
 
     public void deleteSelectedExercises() {

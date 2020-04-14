@@ -6,6 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:form id="exerciseTabForm">
+    <p:growl id="msgs" showDetail="true"/>
     <h:panelGrid columns="4">
         <p:commandButton id="refreshExercises" value="Обновить" update="exercisesDataTable"
                          action="#{exerciseBean.showAllExercises}"/>
@@ -20,15 +21,15 @@
             style="width:100%"
             selection="#{exerciseBean.selectedExercises}"
             editable="true" editMode="cell">
-        <p:ajax event="rowEdit" listener="#{exerciseBean.editExercise}"/>
+        <p:ajax event="cellEdit" listener="#{exerciseBean.editExercise}"/>
         <p:column selectionMode="multiple" style="width:10%;text-align:center"/>
-        <p:column headerText="Название упражнения">
+        <p:column id="exerciseNameColumn" headerText="Название упражнения">
             <p:cellEditor>
                 <f:facet name="output"><h:outputText value="#{exercise.name}"/> </f:facet>
                 <f:facet name="input"><p:inputText value="#{exercise.name}" label="Наименование"/> </f:facet>
             </p:cellEditor>
         </p:column>
-        <p:column headerText="Тип упражения">
+        <p:column id="exerciseTypeColumn" headerText="Тип упражения">
             <p:cellEditor>
                 <f:facet name="output"><h:outputText value="#{exercise.exerciseTypeEntity.name}"/> </f:facet>
                 <f:facet name="input">
@@ -41,7 +42,7 @@
                 </f:facet>
             </p:cellEditor>
         </p:column>
-        <p:column headerText="Часть тренировки">
+        <p:column id="trainingPartColumn" headerText="Часть тренировки">
             <p:cellEditor>
                 <f:facet name="output"><h:outputText value="#{exercise.trainingPartEntities}"/> </f:facet>
                 <f:facet name="input">
