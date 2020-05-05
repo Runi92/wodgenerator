@@ -2,6 +2,8 @@ package beans;
 
 import dao.ExerciseDAOImpl;
 import entities.ExerciseEntity;
+import entities.ExerciseTypeEntity;
+import entities.TrainingPartEntity;
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.event.CellEditEvent;
@@ -73,6 +75,7 @@ public class ExerciseBean {
                 FacesMessage msg = new FacesMessage("Ошибка при редактировании таблицы");
                 FacesContext.getCurrentInstance().addMessage(null, msg);
         }
+        showAllExercises();
     }
 
     private void editExerciseName(CellEditEvent event) {
@@ -86,12 +89,26 @@ public class ExerciseBean {
     }
 
     private void editExerciseTrainingPart(CellEditEvent event) {
+        List<String> oldTrainingPartIds = (List<String>) event.getOldValue();
+        List<String> updatedTrainingPardIds = (List<String>) event.getNewValue();
+        if (oldTrainingPartIds == null || !oldTrainingPartIds.equals(updatedTrainingPardIds)) {
+            ExerciseEntity exerciseEntity = findExerciseById(Integer.parseInt(event.getRowKey()));
+            List<TrainingPartEntity> trainingPartEntities = updatedTrainingPardIds.stream().map(id -> trainingPartBean.findTrainingPartById(Integer.parseInt(id))).collect(Collectors.toList());
+            exerciseEntity.setTrainingPartEntities(trainingPartEntities);
+            updateExercise(exerciseEntity);
+        }
 
     }
 
     private void editExerciseType(CellEditEvent event) {
-        //TODO Дописать метод изменения типа упражнения - приходит идентифифкатор сущности
-        System.out.println();
+        int exerciseOldTypeId = (int) event.getOldValue();
+        int updatedExerciseTypeId = (int) event.getNewValue();
+        if (updatedExerciseTypeId != exerciseOldTypeId) {
+            ExerciseEntity exerciseEntity = findExerciseById(Integer.parseInt(event.getRowKey()));
+            ExerciseTypeEntity exerciseTypeEntity = exerciseTypeBean.findExerciseTypeById(updatedExerciseTypeId);
+            exerciseEntity.setExerciseTypeEntity(exerciseTypeEntity);
+            updateExercise(exerciseEntity);
+        }
     }
 
     public void deleteSelectedExercises() {
