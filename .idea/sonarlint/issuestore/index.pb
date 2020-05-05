@@ -103,8 +103,6 @@ U
 %src/main/java/beans/ExerciseBean.java,e\5\e5a522e775c31fd4fceedfd28da3d38c91f7aff6
 Y
 )src/test/java/beans/ExerciseBeanTest.java,4\c\4ca90550ee6c42b73ad6aea548cfa5edc6a26741
-T
-$src/main/resources/hibernate.cfg.xml,3\1\3176feae82bf4ff4f68f72c9d6d3b850a3110c22
 C
 web/WEB-INF/web.xml,c\d\cdcc12da5c4054f6995aab32914d7e0243194c05
 K

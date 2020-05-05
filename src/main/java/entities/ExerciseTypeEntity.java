@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "exercisetype")
+@Table(name = "exercisetype", schema = "wodgenerator")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -17,12 +17,6 @@ public class ExerciseTypeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    /*@OneToMany
-    @JoinTable(
-            name = "exercise_exercisetype",
-            joinColumns = @JoinColumn(name = "exercisetype_id"),
-            inverseJoinColumns = @JoinColumn(name = "exercise_id"))
-    private List<ExerciseEntity> exerciseEntities;*/
 
     @Override
     public String toString() {

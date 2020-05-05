@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "measurementunits")
+@Table(name = "measurementunits", schema = "wodgenerator")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter

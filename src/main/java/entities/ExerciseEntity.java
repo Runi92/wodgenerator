@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "exercises", schema = "public")
+@Table(name = "exercises", schema = "wodgenerator")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -18,13 +18,13 @@ public class ExerciseEntity {
     private int id;
     private String name;
     @ManyToOne
-    @JoinTable(
+    @JoinTable(schema = "wodgenerator",
             name = "exercise_exercisetype",
             joinColumns = @JoinColumn(name = "exercise_id"),
             inverseJoinColumns = @JoinColumn(name = "exercisetype_id"))
     private ExerciseTypeEntity exerciseTypeEntity;
     @ManyToMany
-    @JoinTable(
+    @JoinTable(schema = "wodgenerator",
             name = "exercise_trainingpart",
             joinColumns = @JoinColumn(name = "exercise_id"),
             inverseJoinColumns = @JoinColumn(name = "trainingpart_id"))

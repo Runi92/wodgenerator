@@ -27,7 +27,7 @@ public class ExerciseDAOImpl implements DAO<ExerciseEntity> {
     public void update(ExerciseEntity exerciseEntity) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(exerciseEntity);
+        session.merge(exerciseEntity);
         transaction.commit();
         session.close();
     }

@@ -86,8 +86,7 @@ public class ExerciseBean {
     }
 
     private void editExerciseTrainingPart(CellEditEvent event) {
-        //TODO Дописать метод изменения части тренирвоки - приходит список идентифифкаторов сущности
-        System.out.println();
+
     }
 
     private void editExerciseType(CellEditEvent event) {

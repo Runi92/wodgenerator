@@ -16,11 +16,6 @@
                     itemLabel="#{exerciseType.name}"
                     itemValue="#{exerciseType.id}"/>
         </p:selectOneMenu>
-        <f:facet name="footer">
-            <p:commandButton id="addExerciseButton" value="Добавить" action="#{exerciseBean.addExercise}"
-                             update="mainTabView:tabView:exerciseTabForm:exercisesDataTable"/>
-            <p:commandButton value="Закрыть" onclick="PF('addExerciseDialog').hide()"/>
-        </f:facet>
         <p:outputLabel value="Часть тренировки"/>
         <p:selectCheckboxMenu id="exerciseTrainingPart" value="#{exerciseBean.exerciseTrainingPartIds}" label="Часть тренировки" filter="true" filterMatchMode="startsWith">
             <f:selectItems
@@ -28,6 +23,11 @@
                     itemLabel="#{trainingPart.name}"
                     itemValue="#{trainingPart.id}"/>
         </p:selectCheckboxMenu>
+        <f:facet name="footer">
+            <p:commandButton id="addExerciseButton" value="Добавить" action="#{exerciseBean.addExercise}"
+                             update="mainTabView:tabView:exerciseTabForm:exercisesDataTable"/>
+            <p:commandButton value="Закрыть" onclick="PF('addExerciseDialog').hide()"/>
+        </f:facet>
     </h:panelGrid>
 </h:form>
 </html>

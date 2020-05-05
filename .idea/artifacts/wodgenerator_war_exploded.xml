@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="wodgenerator:war exploded">
-    <output-path>D:/Program Files/apache-tomcat-8.5.39/webapps/wodgenerator_war_exploded</output-path>
+    <output-path>$PROJECT_DIR$/../../../../Program Files/apache-tomcat-9.0.34-windows-x64/apache-tomcat-9.0.34/webapps/wodgenerator_war_exploded</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
