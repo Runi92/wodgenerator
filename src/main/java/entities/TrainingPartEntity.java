@@ -3,7 +3,6 @@ package entities;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "trainingpart", schema = "wodgenerator")
@@ -20,6 +19,6 @@ public class TrainingPartEntity {
 
     @Override
     public String toString() {
-        return String.join(" ", "Часть тренировки", name);
+        return name;
     }
 }

@@ -3,7 +3,7 @@ package entities;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "exercises", schema = "wodgenerator")
@@ -28,7 +28,13 @@ public class ExerciseEntity {
             name = "exercise_trainingpart",
             joinColumns = @JoinColumn(name = "exercise_id"),
             inverseJoinColumns = @JoinColumn(name = "trainingpart_id"))
-    private List<TrainingPartEntity> trainingPartEntities;
+    private Set<TrainingPartEntity> trainingPartEntities;
+    @ManyToOne
+    @JoinTable(schema = "wodgenerator",
+            name = "exercise_measurementunit",
+            joinColumns = @JoinColumn(name = "exercise_id"),
+            inverseJoinColumns = @JoinColumn(name = "measurementunit_id"))
+    private MeasurementUnitEntity measurementUnitEntity;
 
     @Override
     public String toString() {

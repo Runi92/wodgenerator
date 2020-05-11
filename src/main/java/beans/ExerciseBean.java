@@ -1,13 +1,14 @@
 package beans;
 
+import dao.DAOImpl;
 import dao.ExerciseDAOImpl;
 import entities.ExerciseEntity;
 import entities.ExerciseTypeEntity;
+import entities.MeasurementUnitEntity;
 import entities.TrainingPartEntity;
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.event.CellEditEvent;
-import org.primefaces.event.RowEditEvent;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -17,6 +18,7 @@ import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @ViewScoped
@@ -25,6 +27,7 @@ import java.util.stream.Collectors;
 @Setter
 public class ExerciseBean {
 
+    private int exerciseMeasurementUnitId;
     private int exerciseTypeEntityId;
     private String exerciseName;
     private List<ExerciseEntity> exercises;
@@ -37,20 +40,29 @@ public class ExerciseBean {
     @ManagedProperty(value = "#{trainingPartBean}")
     private TrainingPartBean trainingPartBean;
 
+    @ManagedProperty(value = "#{measurementUnitBean}")
+    private MeasurementUnitBean measurementUnitBean;
+
     public ExerciseBean() {
         exercises = findAllExercise();
     }
 
-    private ExerciseDAOImpl exerciseDAO = new ExerciseDAOImpl();
+    private DAOImpl<ExerciseEntity> exerciseDAO = new ExerciseDAOImpl();
 
     public void addExercise() {
-        saveExercise(
-                ExerciseEntity.
-                        builder().
-                        name(exerciseName).
-                        exerciseTypeEntity(exerciseTypeBean.findExerciseTypeById(exerciseTypeEntityId)).
-                        trainingPartEntities(Arrays.stream(exerciseTrainingPartIds.toArray()).map(id -> trainingPartBean.findTrainingPartById(Integer.parseInt((String) id))).collect(Collectors.toList())).
-                        build());
+        try {
+            saveExercise(
+                    ExerciseEntity.
+                            builder().
+                            name(exerciseName).
+                            exerciseTypeEntity(exerciseTypeBean.findExerciseTypeById(exerciseTypeEntityId)).
+                            trainingPartEntities(Arrays.stream(exerciseTrainingPartIds.toArray()).map(id -> trainingPartBean.findTrainingPartById(Integer.parseInt((String) id))).collect(Collectors.toSet())).
+                            measurementUnitEntity(measurementUnitBean.findMeasurementUnitById(exerciseMeasurementUnitId)).
+                            build());
+        } catch (Exception e) {
+            FacesMessage msg = new FacesMessage("Ошибка при добавлении упражнения");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+        }
         showAllExercises();
     }
 
@@ -59,7 +71,6 @@ public class ExerciseBean {
     }
 
     public void editExercise(CellEditEvent event) {
-        //TODO Дописать метод так, чтобы менять можно было любое количество параметров в строке таблицы
         UIComponentBase currentColumn = (UIComponentBase) event.getColumn();
         switch (currentColumn.getId()) {
             case "exerciseNameColumn":
@@ -70,6 +81,9 @@ public class ExerciseBean {
                 break;
             case "trainingPartColumn":
                 editExerciseTrainingPart(event);
+                break;
+            case "exerciseMeasurementUnit":
+                editExerciseMeasurementUnit(event);
                 break;
             default:
                 FacesMessage msg = new FacesMessage("Ошибка при редактировании таблицы");
@@ -93,7 +107,7 @@ public class ExerciseBean {
         List<String> updatedTrainingPardIds = (List<String>) event.getNewValue();
         if (oldTrainingPartIds == null || !oldTrainingPartIds.equals(updatedTrainingPardIds)) {
             ExerciseEntity exerciseEntity = findExerciseById(Integer.parseInt(event.getRowKey()));
-            List<TrainingPartEntity> trainingPartEntities = updatedTrainingPardIds.stream().map(id -> trainingPartBean.findTrainingPartById(Integer.parseInt(id))).collect(Collectors.toList());
+            Set<TrainingPartEntity> trainingPartEntities = updatedTrainingPardIds.stream().map(id -> trainingPartBean.findTrainingPartById(Integer.parseInt(id))).collect(Collectors.toSet());
             exerciseEntity.setTrainingPartEntities(trainingPartEntities);
             updateExercise(exerciseEntity);
         }
@@ -107,6 +121,17 @@ public class ExerciseBean {
             ExerciseEntity exerciseEntity = findExerciseById(Integer.parseInt(event.getRowKey()));
             ExerciseTypeEntity exerciseTypeEntity = exerciseTypeBean.findExerciseTypeById(updatedExerciseTypeId);
             exerciseEntity.setExerciseTypeEntity(exerciseTypeEntity);
+            updateExercise(exerciseEntity);
+        }
+    }
+
+    private void editExerciseMeasurementUnit(CellEditEvent event) {
+        int oldMeasurementUnitId = (int) event.getOldValue();
+        int updatedMeasurementUnitId = (int) event.getNewValue();
+        if (updatedMeasurementUnitId != oldMeasurementUnitId) {
+            ExerciseEntity exerciseEntity = findExerciseById(Integer.parseInt(event.getRowKey()));
+            MeasurementUnitEntity measurementUnitEntity = measurementUnitBean.findMeasurementUnitById(updatedMeasurementUnitId);
+            exerciseEntity.setMeasurementUnitEntity(measurementUnitEntity);
             updateExercise(exerciseEntity);
         }
     }
@@ -137,4 +162,5 @@ public class ExerciseBean {
     public List<ExerciseEntity> findAllExercise() {
         return exerciseDAO.findAll();
     }
+
 }

@@ -1,5 +1,6 @@
 package beans;
 
+import dao.DAOImpl;
 import dao.MeasurementUnitDAOImpl;
 import entities.MeasurementUnitEntity;
 import lombok.Getter;
@@ -19,7 +20,7 @@ public class MeasurementUnitBean {
     private String measurementUnitName;
     private List<MeasurementUnitEntity> measurementUnits;
     private List<MeasurementUnitEntity> selectedMeasurementUnits;
-    private MeasurementUnitDAOImpl measurementUnitDAO = new MeasurementUnitDAOImpl();
+    private DAOImpl<MeasurementUnitEntity> measurementUnitDAO = new MeasurementUnitDAOImpl();
 
     public MeasurementUnitBean() {
         measurementUnits = findAllMeasurementUnits();
@@ -51,7 +52,7 @@ public class MeasurementUnitBean {
         measurementUnits = findAllMeasurementUnits();
     }
 
-    private MeasurementUnitEntity findMeasurementUnitById(int id) {
+    protected MeasurementUnitEntity findMeasurementUnitById(int id) {
         return measurementUnitDAO.findById(id);
     }
 

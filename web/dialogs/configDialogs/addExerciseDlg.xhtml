@@ -23,10 +23,18 @@
                     itemLabel="#{trainingPart.name}"
                     itemValue="#{trainingPart.id}"/>
         </p:selectCheckboxMenu>
+        <p:outputLabel value="Единица измерения"/>
+        <p:selectOneMenu id="exerciseMeasurementUnitSelectOneMenu" value="#{exerciseBean.exerciseMeasurementUnitId}" dynamic="true"
+                         label="Единица измерения">
+            <f:selectItems
+                    value="#{measurementUnitBean.measurementUnits}" var="measurementUnit"
+                    itemLabel="#{measurementUnit.name}"
+                    itemValue="#{measurementUnit.id}"/>
+        </p:selectOneMenu>
         <f:facet name="footer">
-            <p:commandButton id="addExerciseButton" value="Добавить" action="#{exerciseBean.addExercise}"
+            <p:commandButton id="addExerciseButton" style="width: 100px" value="Добавить" action="#{exerciseBean.addExercise}"
                              update="mainTabView:tabView:exerciseTabForm:exercisesDataTable"/>
-            <p:commandButton value="Закрыть" onclick="PF('addExerciseDialog').hide()"/>
+            <p:commandButton id="closeAddExerciseDialogButton" value="Закрыть" onclick="PF('addExerciseDialog').hide()"/>
         </f:facet>
     </h:panelGrid>
 </h:form>

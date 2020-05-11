@@ -1,5 +1,6 @@
 package beans;
 
+import dao.DAOImpl;
 import dao.TrainingPartDAOImpl;
 import entities.TrainingPartEntity;
 import lombok.Getter;
@@ -24,7 +25,7 @@ public class TrainingPartBean {
         trainingParts = findAllTrainingParts();
     }
 
-    private TrainingPartDAOImpl trainingPartDAO = new TrainingPartDAOImpl();
+    private DAOImpl<TrainingPartEntity> trainingPartDAO = new TrainingPartDAOImpl();
 
     public void addTrainingPart() {
         saveTrainingPart(TrainingPartEntity.builder().name(trainingPartName).build());

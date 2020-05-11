@@ -55,6 +55,19 @@
                 </f:facet>
             </p:cellEditor>
         </p:column>
+        <p:column id="exerciseMeasurementUnit" headerText="Единица измерения">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{exercise.measurementUnitEntity.name}"/> </f:facet>
+                <f:facet name="input">
+                    <p:selectOneMenu value="#{exerciseBean.exerciseMeasurementUnitId}" dynamic="true">
+                        <f:selectItems
+                                value="#{measurementUnitBean.measurementUnits}" var="measurementUnit"
+                                itemLabel="#{measurementUnit.name}"
+                                itemValue="#{measurementUnit.id}"/>
+                    </p:selectOneMenu>
+                </f:facet>
+            </p:cellEditor>
+        </p:column>
     </p:dataTable>
 </h:form>
 <p:dialog widgetVar="addExerciseDialog" resizable="false" closable="false" modal="true">

@@ -1,5 +1,6 @@
 package beans;
 
+import dao.DAOImpl;
 import dao.ExerciseTypeDAOImpl;
 import entities.ExerciseTypeEntity;
 import lombok.Getter;
@@ -32,7 +33,7 @@ public class ExerciseTypeBean {
         exerciseTypeSelectLabel = exerciseTypes.isEmpty() ? ADD_EXERCISE_TYPES : CHOSE_EXERCISE_TYPE;
     }
 
-    private ExerciseTypeDAOImpl exerciseTypeDAO = new ExerciseTypeDAOImpl();
+    private DAOImpl<ExerciseTypeEntity> exerciseTypeDAO = new ExerciseTypeDAOImpl();
 
     public void addExerciseType() {
         saveExerciseType(ExerciseTypeEntity.builder().name(exerciseTypeName).build());
